@@ -8,11 +8,9 @@
 
 Built a claim frequency model on 595,000+ auto insurance policyholder 
 records from Porto Seguro, a major Brazilian insurer. The goal was to 
-predict which policyholders are most likely to file a claim — the same 
-problem actuaries solve when building loss cost models for P&C pricing.
+predict which policyholders are most likely to file a claim.
 
-Three models were developed and compared using Gini coefficient, the 
-standard discrimination metric used in actuarial pricing work.
+Three models were developed and compared using Gini coefficient
 
 | Model | AUC | Gini |
 |---|---|---|
@@ -80,21 +78,3 @@ conducted consistent with actuarial pricing diagnostics.
   that frequency reframing did not add discrimination on this anonymized 
   dataset — though the Poisson framework remains more appropriate for 
   real labeled insurance data where exposure is known
-
----
-
-## Actuarial Context
-
-This project mirrors the workflow of a P&C actuarial analyst building 
-a univariate and multivariate loss cost model:
-
-- Frequency-severity decomposition (Poisson GLM for frequency)
-- GLM as interpretable baseline consistent with rate filing standards
-- Lift curve validation of model discrimination
-- A/E ratio analysis to identify pricing inadequacy by segment
-- Gini coefficient as primary model selection metric
-
-The main limitation of this dataset is feature anonymization — in 
-practice, variables like vehicle type, driver age, and territory would 
-be explicitly labeled, enabling more targeted feature engineering and 
-clearer business interpretation of model coefficients.
