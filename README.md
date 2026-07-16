@@ -44,11 +44,11 @@ Three models were developed and compared using Gini coefficient
 - 80/20 train/validation split with stratified claim rate check
 
 ### Modeling
-**Logistic GLM** 
+**Logistic GLM** - Used to model binary outcomes
 
-**Poisson GLM**
+**Poisson GLM** - Used for raw claim counts
 
-**XGBoost** 
+**XGBoost** - Gradient boosted tree model for comparison
 
 ### Evaluation
 Models were evaluated using AUC and Gini coefficient. Lift curves, 
