@@ -25,7 +25,7 @@ Three models were developed and compared using Gini coefficient
 - **Source:** Porto Seguro Safe Driver Prediction (Kaggle)
 - **Size:** 595,212 policyholders, 57 features
 - **Target:** Binary claim indicator (1 = claim filed)
-- **Claim frequency:** 3.64% — consistent with real auto insurance loss ratios
+- **Claim frequency:** 3.64%
 - **Features:** Anonymized policyholder and vehicle attributes across 
   binary, categorical, and continuous variable types
 
@@ -44,17 +44,11 @@ Three models were developed and compared using Gini coefficient
 - 80/20 train/validation split with stratified claim rate check
 
 ### Modeling
-**Logistic GLM** — Binary classification baseline. GLMs are the 
-industry standard for P&C rate filings due to their interpretability 
-and regulatory acceptance.
+**Logistic GLM** 
 
-**Poisson GLM** — Reframed the target as claim frequency rather than 
-binary outcome, consistent with how actuaries decompose loss costs into 
-frequency and severity components.
+**Poisson GLM**
 
-**XGBoost** — Gradient boosted tree model for comparison. Tuned with 
-early stopping on validation AUC to prevent overfitting on the 
-imbalanced target.
+**XGBoost** 
 
 ### Evaluation
 Models were evaluated using AUC and Gini coefficient. Lift curves, 
@@ -69,12 +63,11 @@ conducted consistent with actuarial pricing diagnostics.
   GLM baselines (Gini = 0.264)
 - The highest-risk decile filed claims at **2.21x the portfolio average**, 
   demonstrating meaningful risk segmentation
-- The XGBoost model was well-calibrated — predicted probabilities 
-  closely tracked actual claim rates across the score distribution
+- The XGBoost model was well-calibrated. It predicted probabilities 
+  that closely tracked actual claim rates across the score distribution
 - A/E analysis identified systematic under-prediction for policyholder 
   categories 2, 3, and 4, suggesting these segments may warrant 
   separate rating factors in a production pricing model
 - Poisson and Logistic GLMs produced identical Gini scores, indicating 
   that frequency reframing did not add discrimination on this anonymized 
-  dataset — though the Poisson framework remains more appropriate for 
-  real labeled insurance data where exposure is known
+  dataset
